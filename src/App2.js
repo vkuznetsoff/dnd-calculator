@@ -6,10 +6,10 @@ import Calculator from './components/Calculator';
 function App() {
   return (
     <div className="App">
-     
+      <Header className="header" />
       <div className="content">
         <Constructor className="constructor" />
-        {/* <Calculator className="calculator" /> */}
+        <Calculator className="calculator" />
       </div>
 
     </div>
