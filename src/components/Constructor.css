@@ -11,6 +11,9 @@
     display: flex;
     margin-bottom: 12px;
     padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -42,6 +45,7 @@
 
 .inputField p {
     padding: 4px 18px 4px;
+    
 }
 
 .operationContainer {
@@ -122,6 +126,6 @@
 
 .itemEqual {
     color: #FFFFFF;
-    ;
-
+    
 }
+

@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import { useDrag } from "react-dnd"
+import { Context } from "../App"
 import { ItemTypes } from "../types/ItemTypes"
 import Block from "./Block"
 import "./Constructor.css"
@@ -10,29 +12,17 @@ import Operations from "./Operations"
 
 
 
-const Constructor = (props) => {
-    const {divList} = props
-    const [{isDragging}, drag] = useDrag({
-        type: ItemTypes.BLOCK,
-        item: {
-            id: divList.id,
-            order: divList.order,
-            component: divList.component
-        } ,
-        collect: monitor => (
-            {
-                isDragging: !!monitor.isDragging()
-            }
-        )      
-    })
+const Constructor = ({dispatch}) => {
+    const data = useContext(Context)
+    
 
     return (
         <div className="constructorContainer" >
             
-            {divList.map(block => {
+            {data.map(block => {
                 return (
-                    <div className="itemContainer">
-                     <Block component={block.component} />
+                    <div  className="itemContainer">
+                     <Block  component={block.component} dispatch={dispatch}/>
                     </div>
                 )
             })}

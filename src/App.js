@@ -8,46 +8,28 @@ import Input from './components/Input';
 import Operations from './components/Operations';
 import Equal from './components/Equal';
 import Numbers from './components/Numbers';
+import { createContext, useReducer } from 'react';
+import { initialState } from './state/state';
+import { reducer } from './state/reducer';
 
-const divList = [
-  {
-      id: "input",
-      order: 1,
-      component: <Input />
 
-  },
-
-  {
-      id: "operations",
-      order: 2,
-      component: <Operations />
-
-  },
-
-  {
-      id: "numbers",
-      order: 3,
-      component: <Numbers />
-
-  },
-  {
-      id: "equal",
-      order: 4,
-      component: <Equal />
-
-  }
-]
+export const Context = createContext()
 
 
 function App() {
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+  
   return (
     <DndProvider backend={HTML5Backend} >
       <div className="App">
 
         <div className="content">
+          <Context.Provider value={state} >
+            <Constructor className="constructor" dispatch={dispatch} />
+            <Calculator className="calculator" dispatch={dispatch}/>
+          </Context.Provider>
 
-          <Constructor className="constructor" divList={divList} />
-          <Calculator className="calculator" />
 
         </div>
 
