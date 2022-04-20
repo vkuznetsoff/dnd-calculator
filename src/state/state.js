@@ -4,7 +4,7 @@ import Numbers from "../components/Numbers";
 import Equal from "../components/Equal";
 
 export const initialState = [
-    {
+  {
       id: "input",
       order: 1,
       component: <Input />,
@@ -33,5 +33,7 @@ export const initialState = [
       component: <Equal />,
       status: "edit" //  or "done"
   
-    }
+    },
+
+   
   ]

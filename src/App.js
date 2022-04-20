@@ -25,9 +25,9 @@ function App() {
       <div className="App">
 
         <div className="content">
-          <Context.Provider value={state} >
-            <Constructor className="constructor" dispatch={dispatch} />
-            <Calculator className="calculator" dispatch={dispatch}/>
+          <Context.Provider value={[state, dispatch]} >
+            <Constructor className="constructor"  />
+            <Calculator className="calculator" />
           </Context.Provider>
 
 

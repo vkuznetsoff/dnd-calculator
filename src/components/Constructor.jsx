@@ -12,17 +12,17 @@ import Operations from "./Operations"
 
 
 
-const Constructor = ({dispatch}) => {
-    const data = useContext(Context)
+const Constructor = () => {
+    const [state, dispatch] = useContext(Context)
     
-
+    // console.log(state)
     return (
         <div className="constructorContainer" >
             
-            {data.map(block => {
+            {state.map(block => {
                 return (
                     <div  className="itemContainer">
-                     <Block  component={block.component} dispatch={dispatch}/>
+                     <Block  block={block} />
                     </div>
                 )
             })}
