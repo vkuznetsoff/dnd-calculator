@@ -21,7 +21,7 @@ const Constructor = () => {
             
             {state.map(block => {
                 return (
-                    <div  className="itemContainer">
+                    <div key={block.id} className="itemContainer">
                      <Block  block={block} />
                     </div>
                 )

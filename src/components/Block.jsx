@@ -1,9 +1,9 @@
 import { useDrag } from "react-dnd"
 import { ItemTypes } from "../types/ItemTypes"
 
-const Block = ({component, block}) => {
+const Block = ({block}) => {
 
-    const [{isDragging}, drag] = useDrag({
+    const [{isDragging, isDropped}, drag] = useDrag({
         type: ItemTypes.BLOCK,
         item: {
             id: block.id
@@ -11,7 +11,7 @@ const Block = ({component, block}) => {
         
         collect: monitor => (
             {
-                isDragging: !!monitor.isDragging()
+                isDragging: !!monitor.isDragging(),
             }
         )      
     })
@@ -22,7 +22,6 @@ const Block = ({component, block}) => {
         <div ref={drag} style={{  opacity: isDragging ? 0.5 : 1 }}>
         {block.component}     
         </div>
-        
         </>
          
     )

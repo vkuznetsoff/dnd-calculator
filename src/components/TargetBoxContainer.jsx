@@ -44,7 +44,7 @@ const TargetBoxContainer = () => {
           {state
             .filter((f) => f.status == "done")
             .map((el) => {
-              return <div className="itemContainer">{el.component}</div>;
+              return <div key={el.id} className="itemContainer">{el.component}</div>;
             })}
         </div>
       }
