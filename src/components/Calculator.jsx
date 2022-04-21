@@ -7,15 +7,9 @@ import TargetBoxContainer from "./TargetBoxContainer"
 
 
 
-const Calculator = () => {
-    // const [btnList, setBtnList] = useState([])
-   
-
-    const data = useContext(Context)
-
+const Calculator = () => {    
     return (
         <div className="calculatorContainer" >
-            
 
              <TargetBoxContainer />
                

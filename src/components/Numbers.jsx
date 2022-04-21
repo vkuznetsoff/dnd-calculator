@@ -2,7 +2,7 @@
 
 import { SetActiveBorder } from "../utils/utils";
 
-const list = ["1", 2, 3, 4, 5, 6, 7, 8, 9, 0, ","];
+const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, ","];
 const Numbers = () => {
 
   const onNumberClick = (e, i) => {
@@ -15,8 +15,7 @@ const Numbers = () => {
   return (
     <div className="numbersContainer">
       {list.map((i) => {
-        console.log(i);
-        debugger;
+      
         return (
           <div
             key={list.indexOf(i)}

@@ -11,25 +11,36 @@ import Numbers from './components/Numbers';
 import { createContext, useReducer } from 'react';
 import { initialState } from './state/state';
 import { reducer } from './state/reducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-export const Context = createContext()
+
+
 
 
 function App() {
+  //console.log(store)
+  // const dragElements = useSelector((state) => Object.values(state.dragElements))
+  // const dropElements = useSelector((state) => state.dropElements)
+  // const state = useSelector(state => state)
+  // const dispatch = useDispatch()
+  // console.log(state)
+  
+  // console.log('dragElements: ', dragElements)
+  // console.log('dropElements: ',  dropElements)
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  
+  
+  // const [state, dispatch] = useReducer(reducer, initialState)
   
   return (
-    <DndProvider backend={HTML5Backend} >
+    <DndProvider backend={HTML5Backend}>
       <div className="App">
-
+        
         <div className="content">
-          <Context.Provider value={[state, dispatch]} >
+         
             <Constructor className="constructor"  />
             <Calculator className="calculator" />
-          </Context.Provider>
-
 
         </div>
 

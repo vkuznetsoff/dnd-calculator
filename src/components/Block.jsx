@@ -20,7 +20,7 @@ const Block = ({block}) => {
     return (
         <>
         <div ref={drag} style={{  opacity: isDragging ? 0.5 : 1 }}>
-        {block.component}     
+        {block.component()}     
         </div>
         </>
          
