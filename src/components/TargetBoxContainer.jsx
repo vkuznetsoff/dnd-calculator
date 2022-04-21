@@ -11,7 +11,8 @@ const TargetBoxContainer = () => {
   const [empty, setEmpty] = useState(true);
 
   const onDrop = (item) => {
-    dispatch(setStatusAC("done", item.id));
+    // dispatch(setStatusAC("done", item.id));
+    dispatch(addElement())
     setEmpty(false);
   };
 

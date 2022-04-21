@@ -1,4 +1,4 @@
-import { CHANGE_STATUS } from "./actionTypes"
+import { ADD_ELEMENT, CHANGE_STATUS } from "./actionTypes"
 
 
 export const reducer = (state, action) => {
@@ -13,6 +13,11 @@ export const reducer = (state, action) => {
 
                     return {...c}
                 })
+        }
+
+        case ADD_ELEMENT: {
+            
+
         }
 
         default:

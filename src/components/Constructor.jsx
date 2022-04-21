@@ -19,7 +19,7 @@ const Constructor = () => {
     return (
         <div className="constructorContainer" >
             
-            {state.map(block => {
+            {state.dragElements.map(block => {
                 return (
                     <div key={block.id} className="itemContainer">
                      <Block  block={block} />
