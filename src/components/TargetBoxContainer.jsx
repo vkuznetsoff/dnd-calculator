@@ -1,55 +1,55 @@
-import { useContext, useState } from "react"
-import { useDrop } from "react-dnd"
-import { Context } from "../App"
-import { setStatusAC } from "../state/actions"
-import { ItemTypes } from "../types/ItemTypes"
-import "./Calculator.css"
+import { useContext, useState } from "react";
+import { useDrop } from "react-dnd";
+import { Context } from "../App";
+import { setStatusAC } from "../state/actions";
+import { ItemTypes } from "../types/ItemTypes";
+import "./Calculator.css";
 
 const TargetBoxContainer = () => {
+  const [state, dispatch] = useContext(Context);
 
-    const [state, dispatch] = useContext(Context)
+  const [empty, setEmpty] = useState(true);
 
-    const [empty, setEmpty] = useState(true)
+  const onDrop = (item) => {
+    dispatch(setStatusAC("done", item.id));
+    setEmpty(false);
+  };
 
-    const onDrop = (item) => {
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: ItemTypes.BLOCK,
+    drop: (item, monitor) => {
+      onDrop(item);
+    },
 
-        dispatch(setStatusAC("done", item.id))
-        setEmpty(false)
-        
-    }
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+  }));
 
-    const [{ isOver }, drop] = useDrop(
-        () => ({
-            accept: ItemTypes.BLOCK,
-            drop: (item, monitor) => {
+  const style = {
+    border: empty ? "2px dashed #C4C4C4" : "none",
+    backgroundColor: isOver ? "yellow" : undefined,
+   
+  };
 
-                onDrop(item)
-            },
+  return (
+    <>
+      {
+        <div
+          ref={drop}
+          className="frame"
+          style={style}
+        >
+          {state
+            .filter((f) => f.status == "done")
+            .map((el) => {
+              return <div className="itemContainer">{el.component}</div>;
+            })}
+        </div>
+      }
+    </>
+  );
+};
 
-            collect: monitor => ({
-                isOver: monitor.isOver(),
-                canDrop: monitor.canDrop()
-            })
-        }))
-    
-
-    return (
-        <>
-            {empty ? <div ref={drop} className="frame"
-                style={{ backgroundColor: isOver ? 'yellow' : undefined }}></div>
-                : state.filter(f => f.status == "done").map(el => {
-
-                    return (
-                        <div className="itemContainer">
-                            {el.component}
-                        </div>
-                    )
-                })
-                }
-        </>
-
-       
-    )
-}
-
-export default TargetBoxContainer
+export default TargetBoxContainer;
