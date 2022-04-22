@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Context } from "../App";
 import { addElementAC } from "../redux/actions";
 import { setStatusAC } from "../redux/actions";
+import { DEACTIVE_BLOCK } from "../redux/statuses";
 import { ItemTypes } from "../types/ItemTypes";
 import "./Calculator.css";
 
@@ -14,14 +15,14 @@ const TargetBoxContainer = () => {
   const [empty, setEmpty] = useState(true);
 
   const onDrop = (item) => {
-    const newEl = {
-      id: item.id,
-      order: item.order,
-      status: "done", 
-      component: item.component
-    }
+    // const newEl = {
+    //   id: item.id,
+    //   order: item.order,
+    //   status: "done", 
+    //   component: item.component
+    // }
     
-    dispatch(setStatusAC("done", item.id));
+    dispatch(setStatusAC(DEACTIVE_BLOCK, item.id));
     // dispatch(addElementAC(item))
     setEmpty(false);
   };
@@ -29,7 +30,7 @@ const TargetBoxContainer = () => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BLOCK,
     drop: (item, monitor) => {
-      debugger
+      
       onDrop(item);
     },
 
@@ -54,7 +55,7 @@ const TargetBoxContainer = () => {
           style={style}
         >
           {dragElements
-            .filter((f) => f.status == "done")
+            .filter((f) => f.status == DEACTIVE_BLOCK)
             .map((el) => {
               return <div key={el.id} className="itemContainer">{el.component}</div>;
             })}

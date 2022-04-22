@@ -1,4 +1,5 @@
 import { useDrag } from "react-dnd"
+import { DEACTIVE_BLOCK } from "../redux/statuses"
 import { ItemTypes } from "../types/ItemTypes"
 
 const Block = ({block}) => {
@@ -15,12 +16,18 @@ const Block = ({block}) => {
             }
         )      
     })
+
+    const style = {
+        opacity: (isDragging || block.status == DEACTIVE_BLOCK) ? "0.5" : "1",
+        pointerEvents: block.status == DEACTIVE_BLOCK && "none"
+    }
+   
    
 
     return (
         <>
-        <div ref={drag} style={{  opacity: isDragging ? 0.5 : 1 }}>
-        {block.component()}     
+        <div ref={drag} style={style} >
+        {block.component}     
         </div>
         </>
          
