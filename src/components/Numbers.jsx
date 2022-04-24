@@ -1,25 +1,62 @@
 // import "./Operations.css"
 
 import { useState } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { calcAC, changeInput1AC, isInput1AC, isInput2AC} from "../redux/actions";
+import { setInput1, setInput1Flag, setInput2 } from "../redux/input_reducer";
 import { SetActiveBorder } from "../utils/utils";
 
-const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, ","];
+const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ","];
 const Numbers = () => {
 
-  const [flag, setFlag] = useState(true)
+ 
+  const dispatch = useDispatch()
 
-  const onNumberClick = (e) => {
-    
+  
+  const isInput1 = useSelector(state => state.input.isInput1)
+  const isInput2 = useSelector(state => state.input.isInput2)
+  const isEqualPress = useSelector(state => state.input.isEqualPress)
+  const isOperatorPress = useSelector(state => state.input.isOperatorPress)
+
+
+  
+
+  const onNumberClick = (e, i) => {
+
+    // dispatch(isInput1AC(true))
+    if (!isOperatorPress) {
+      dispatch(setInput1(true, i))
       SetActiveBorder(e, "numberItem")
+    } else  dispatch(setInput2(true,i))
+
+      //isInput1 && dispatch(changeInput1AC(i))
+
+      
     
-      // console.log('Deactive')
+     //HERE: Function to Save clicked Number
+     
+    //  (isInput1 && isEqualPress) && dispatch(setInput1Flag(true, i))
 
+    //  e.target.style = "border: 1px solid #E2E3E5"
 
-    //HERE: Function to Save clicked Number
+    // alert(isInput1)
+    
+
     // setTimeout(() => {
-    //   (e.target.style = "border: 1px solid #E2E3E5")
+    //   (isInput1 && !isEqualPress) && dispatch(changeInput1AC(i))
+    // }, 1000);
+
+    // if (isInput1 && !isEqualPress) {
+
+    //   dispatch(changeInput1AC(i))
+    // }
+    // dispatch(calcAC(i))
     
-    // }, 500);
+    setTimeout(() => {
+      (e.target.style = "border: 1px solid #E2E3E5")
+    }, 300);
+
+    
 
   };
 
@@ -31,7 +68,7 @@ const Numbers = () => {
           <div
             key={list.indexOf(i)}
             className="numberItem"
-            onClick={(e) => onNumberClick(e)}
+            onClick={(e) => onNumberClick(e, i)}
           >
             {i}
           </div>
@@ -43,4 +80,9 @@ const Numbers = () => {
   );
 };
 
+// const mapStateToProps = (state) => {
+
+// }
 export default Numbers;
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Numbers);

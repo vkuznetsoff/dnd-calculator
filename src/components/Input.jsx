@@ -1,10 +1,13 @@
+import { useSelector } from "react-redux"
 import "./Constructor.css"
 
 const Input = () => {
+    const inputField = useSelector(state => state.input.inputField)
+    
     return (
         <div className="inputFieldContainer">
             <div className="inputField">
-                <p>0</p>
+                <p>{inputField ? inputField : 0}</p>
             </div>
         </ div>
 
