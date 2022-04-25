@@ -41,10 +41,11 @@ export const changeInputFieldAC = (string) => {
 }
 }
 
-export const resetInputFieldAC = () => { 
+export const resetInputFieldAC = (defValue=null) => { 
       
     return {
-    type: RESET_INPUT_FIELD
+    type: RESET_INPUT_FIELD,
+    payload: defValue
    
 }
 }

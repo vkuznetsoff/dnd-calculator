@@ -22,12 +22,15 @@ const Numbers = () => {
   
 
   const onNumberClick = (e, i) => {
-
+    SetActiveBorder(e, "numberItem")
     // dispatch(isInput1AC(true))
-    if (!isOperatorPress) {
+
+   
+    if (!isOperatorPress || isInput2)  {
       dispatch(setInput1(true, i))
-      SetActiveBorder(e, "numberItem")
-    } else  dispatch(setInput2(true,i))
+      
+    } else   dispatch(setInput2(true,i))
+    
 
       //isInput1 && dispatch(changeInput1AC(i))
 
