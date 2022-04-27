@@ -7,7 +7,7 @@ const Block = ({block}) => {
     const [{isDragging, isDropped}, drag] = useDrag({
         type: ItemTypes.BLOCK,
         item: {
-            id: block.id
+            item: block
         },
         
         collect: monitor => (

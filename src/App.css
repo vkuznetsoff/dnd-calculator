@@ -8,6 +8,7 @@
   text-align: center;
   width: 695px;
   height: 640px;
+  user-select: none;
   /* display: flex; */
   /* justify-items: space-between; */
   /* flex-direction: column;

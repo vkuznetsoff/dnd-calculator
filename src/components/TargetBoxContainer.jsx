@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Context } from "../App";
 import { addElementAC } from "../redux/actions";
 import { setStatusAC } from "../redux/actions";
+import { addDropedElement, addDroppedElement } from "../redux/drop_reducer";
 import { DEACTIVE_BLOCK } from "../redux/statuses";
 import { ItemTypes } from "../types/ItemTypes";
 import "./Calculator.css";
@@ -23,6 +24,7 @@ const TargetBoxContainer = () => {
     // }
     
     dispatch(setStatusAC(DEACTIVE_BLOCK, item.id));
+    dispatch(addDroppedElement(item.item))
     // dispatch(addElementAC(item))
     setEmpty(false);
   };
@@ -54,11 +56,16 @@ const TargetBoxContainer = () => {
           className="frame"
           style={style}
         >
-          {dragElements
+
+          {dropElements.map( (el) => {
+              return <div key={el.id} className="itemContainer">{el.component}</div>;
+            })}
+
+          {/* {dragElements
             .filter((f) => f.status == DEACTIVE_BLOCK)
             .map((el) => {
               return <div key={el.id} className="itemContainer">{el.component}</div>;
-            })}
+            })} */}
         </div>
       }
     </>
