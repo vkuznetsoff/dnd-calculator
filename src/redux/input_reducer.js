@@ -1,20 +1,11 @@
-import {
-  changeInput1AC,
-  changeInput2AC,
-  changeInputFieldAC,
-  isEqualPress,
-  isInput1AC,
-  isInput2AC,
-  isOperatorPress,
-  resetInput1AC,
-  resetInputFieldAC,
-  setOperatorAC,
-} from "./actions";
+
 import {
   CALC_EXPR,
+  CALC_RESULT,
   CHANGE_INPUT_1,
   CHANGE_INPUT_2,
   CHANGE_INPUT_FIELD,
+  CLEAR_ALL,
   IS_EQUAL_PRESS,
   IS_INPUT_1,
   IS_INPUT_2,
@@ -26,17 +17,35 @@ import {
 } from "./actionTypes";
 import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "./statuses";
 
+function calc (a, b, operator) {
+switch (operator) {
+  case "+": {
+    return (+a)+(+b)
+  }
+
+  case "-": {
+    return a - b
+  }
+
+  case "*": {
+    return a * b
+  }
+
+  case "/": {
+    return a / b
+  }
+}
+
+}
+
 const initialState = {
-  inputField: "0",
-  input1: "0",
-  input2: null,
+  inputField: "",
+  input1: "",
+  input2: "",
   operator: "",
-  expr: "",
-  isInput1: true,
-  isInput2: false,
   isEqualPress: false,
-  isOperatorPress: false,
-  // Calc: (expr) => eval(expr)
+  calculate: calc
+
 };
 
 export default function input_reducer(state = initialState, action) {
@@ -44,32 +53,18 @@ export default function input_reducer(state = initialState, action) {
     case CHANGE_INPUT_1: {
       return {
         ...state,
-        input1: state.input1 ? state.input1 + action.payload : action.payload,
+        input1: action.payload,
       };
     }
 
     case CHANGE_INPUT_2: {
       return {
         ...state,
-        input2: state.input2 ? state.input2 + action.payload : action.payload,
+        input2: action.payload,
       };
     }
 
     case CHANGE_INPUT_FIELD: {
-      return {
-        ...state,
-        inputField: state.isInput1
-          ? state.input1
-          : state.isInput2
-          ? state.input2
-          : undefined,
-        // inputField: state.inputField
-        //   ? state.inputField + action.payload
-        //   : action.payload,
-      };
-    }
-
-    case RESET_INPUT_FIELD: {
       return {
         ...state,
         inputField: action.payload,
@@ -80,32 +75,33 @@ export default function input_reducer(state = initialState, action) {
       return { ...state, operator: action.payload };
     }
 
-    case CALC_EXPR: {
-      return { ...state, expr: state.input + state.expr };
-    }
-
-    case IS_INPUT_1: {
-      return { ...state, isInput1: action.payload };
-    }
-
-    case IS_INPUT_2: {
-      return { ...state, isInput2: action.payload };
+    case IS_EQUAL_PRESS: {
+      return { ...state, isEqual: action.payload };
     }
 
     case IS_EQUAL_PRESS: {
-      return { ...state, isEqualPress: action.payload };
+      return { ...state, isEqual: action.payload };
     }
 
-    case IS_OPERATOR_PRESS: {
-      return { ...state, isOperatorPress: action.payload };
+    case CALC_RESULT: {
+      let result = calc(state.input1, state.input2, state.operator)
+      return { ...state, 
+              input1: result,
+              inputField: result,
+              isEqualPress: true       
+      }
     }
 
-    case RESET_INPUT_1: {
-      return { ...state, input1: "" };
-    }
 
-    case RESET_INPUT_2: {
-      return { ...state, input2: "" };
+    case CLEAR_ALL: {
+      return {
+        ...state,
+        inputField: "0",
+        input1: "",
+        input2: "",
+        operator: "",
+        isEqual: false
+      };
     }
 
     default:
@@ -113,43 +109,45 @@ export default function input_reducer(state = initialState, action) {
   }
 }
 
-export const setInput1 = (flag, i) => (dispatch) => {
-  dispatch(isInput1AC(flag));
-  dispatch(changeInput1AC(i));
-  dispatch(changeInputFieldAC(i));
-};
-
-export const setInput2 = (flag, i) => (dispatch) => {
-  dispatch(isInput2AC(flag));
-  dispatch(changeInput2AC(i));
-  dispatch(changeInputFieldAC(i));
-};
-
-export const OpeartorPress = (flag, i) => (dispatch) => {
+// export const setInput1 = (i) => (dispatch) => {
+//   dispatch()
   
-  dispatch(isInput2AC(true))
-  dispatch(isOperatorPress(flag));
-  dispatch(setOperatorAC(i));
-  //dispatch(resetInputFieldAC(""));
+// };
+// export const setInput1 = (i) => {
+//   return {
+//     type: CHANGE_INPUT_1,
+//     payload: i
+//   }
+// }
 
-  // if (isInput1 && !isEqualPress) {
+// export const setInput2 = (i) => {
+//   return {
+//     type: CHANGE_INPUT_1,
+//     payload: i
+//   }
+// }
+// // export const setInput2 = (flag, i) => (dispatch) => {
+ 
+// // };
 
-  //     dispatch(changeInput1AC(i))
-  //   }
-};
+// // export const OperatorPress = (flag, i) => (dispatch) => {
 
-export const EqualPress = (flag, result) => (dispatch) => {
-  dispatch(isEqualPress(flag));
-  dispatch(resetInputFieldAC(result));
+// // };
 
-  // dispatch(setInput1(res))
-  // dispatch(setInput2(null))
-  // dispatch(isInput2AC(false))
-  // dispatch(isOperatorPress(false))
-  // dispatch(setOperatorAC(""))
+// export const setOperator = (i) => {
+//   return {
+//     type: SET_OPERATOR,
+//     payload: i
+//   }
+// }
 
-  // if (isInput1 && !isEqualPress) {
+// // export const EqualPress = (flag, result) => (dispatch) => {
+  
+// // };
 
-  //     dispatch(changeInput1AC(i))
-  //   }
-};
+// export const isEqualPress = (flag) => {
+//   return {
+//     type: IS_EQUAL_PRESS,
+//     payload: flag
+//   }
+// }

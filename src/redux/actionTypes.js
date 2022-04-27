@@ -17,6 +17,7 @@ export const IS_INPUT_2 = "IS_INPUT_2"
 export const IS_EQUAL_PRESS = "IS_EQUAL_PRESS"
 export const IS_OPERATOR_PRESS = "IS_OPERATOR_PRESS"
 
+export const CLEAR_ALL = "CLEAR_ALL"
 
-export const CALC_EXPR = "CALC_EXPR"
+export const CALC_RESULT = "CALC_RESULT"
 
