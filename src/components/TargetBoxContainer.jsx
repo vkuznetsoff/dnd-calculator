@@ -23,7 +23,7 @@ const TargetBoxContainer = () => {
     //   component: item.component
     // }
     
-    dispatch(setStatusAC(DEACTIVE_BLOCK, item.id));
+    dispatch(setStatusAC(DEACTIVE_BLOCK, item.item.id));
     dispatch(addDroppedElement(item.item))
     // dispatch(addElementAC(item))
     setEmpty(false);

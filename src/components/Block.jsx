@@ -14,7 +14,17 @@ const Block = ({block}) => {
             {
                 isDragging: !!monitor.isDragging(),
             }
-        )      
+        ),
+        
+        end: (item, monitor) => {
+            //Получаем сведения о результатах перетаскивания
+        
+            // const res1 = monitor.getDropResult()
+            // const res2 = monitor.didDrop()
+            // console.log(res1)
+            // console.log(res2)
+            // console.log(item)
+        }
     })
 
     const style = {

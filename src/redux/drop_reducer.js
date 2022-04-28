@@ -4,9 +4,12 @@ const initialState = [];
 
 export default function drop_reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_ITEM: {
-        debugger
-      return [...state, action.payload];
+    case ADD_ITEM: {     
+      const inState = state.some(i => i.id == action.payload.id) 
+      if (!inState) {
+        return [...state, action.payload]
+      }
+     
     }
 
     default:
@@ -15,7 +18,7 @@ export default function drop_reducer(state = initialState, action) {
 }
 
 export const addDroppedElement = (item) => {
-    debugger
+    
   return {
     type: ADD_ITEM,
     payload: item,

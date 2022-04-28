@@ -1,0 +1,80 @@
+
+
+
+
+.App {
+  /* font-family: 'Inter', sans-serif; */
+  border: 1px solid;
+  text-align: center;
+  width: 695px;
+  height: 640px;
+  /* user-select: none; */
+  display: flex;
+  /* justify-items: space-between; */
+  flex-direction: column;
+  /* align-items: flex-end; */
+  
+}
+
+.content {
+  display:flex;
+  justify-content: space-around;
+
+}
+
+.header {
+  display: flex;
+  justify-content: end;
+  margin-top: 38px;
+  margin-right: 80px;
+
+}
+
+.btnContainer {
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 1px;
+
+width: 243px;
+height: 38px;
+
+background: #F3F4F6;
+border-radius: 6px;
+
+}
+
+.btn {
+  display: flex;
+/* flex-direction: row; */
+justify-content: space-between;
+align-items: center;
+padding: 8px 12px;
+
+width: 133px;
+height: 36px;
+
+
+/* background: #FFFFFF;
+border: 1px solid #E2E3E5; */
+box-sizing: border-box;
+border-radius: 5px;
+
+/* Inside auto layout */
+
+/* flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 0px; */
+}
+
+.btn svg {
+  /* margin: ; */
+
+}
+
+.active1 {
+  background: "#FFFFFF";
+  border: "1px solid #E2E3E5" 
+}
+

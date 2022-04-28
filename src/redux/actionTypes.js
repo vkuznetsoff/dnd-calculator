@@ -25,4 +25,7 @@ export const CALC_RESULT = "CALC_RESULT"
 //DROP_REDUCER
 export const ADD_ITEM = "ADD_ITEM"
 
+//APP_REDUCER
+export const CHANGE_MODE = 'CHANGE_MODE'
+
 
