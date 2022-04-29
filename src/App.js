@@ -16,9 +16,11 @@ import { constructorSVG, runtimeSVG } from "./image";
 import { changeAppMode, CONSTRUCTOR, RUNTIME } from "./redux/app_reducer";
 import s from "./App.module.css"
 
+const getAppMode = state => state.app.appMode
+
 function App(props) {
   const dispatch = useDispatch()
-  const appMode = useSelector(state => state.app.appMode)
+  const appMode = useSelector(getAppMode)
  // const [mode, setMode] = useState(appMode)
 //  useEffect( () => console.log('appMode',appMode),
 //  [appMode])
@@ -35,27 +37,28 @@ function App(props) {
 
   const onBtnClick = (e) => {
 
-    if (e.target.className == `${s.btn} ${s.rt}` ) {
+    if (e.target.className == `${s.btn}` && appMode == CONSTRUCTOR) {
       
         dispatch(changeAppMode(RUNTIME))
     } else dispatch(changeAppMode(CONSTRUCTOR))
 
     
     
-   if (appMode == RUNTIME) {
-     e.target.className = e.target.className + ' ' + s.active
-   }
+  //  if (appMode == RUNTIME) {
+  //    e.target.className = e.target.className + ' ' + s.active
+  //  }
   }
 
-// console.log('props:  ', props)
-// console.log('appMode',appMode)
+  const constructorClassName = (appMode == CONSTRUCTOR) ? `${s.btn} ${s.active}` : s.btn
+  const runtimeClassName = (appMode == RUNTIME) ? `${s.btn} ${s.active}` : s.btn
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className={s.App}>
         <div className={s.header}>
           <div className={s.btnContainer}>
-            <div className={s.btn + ' ' + s.rt}  onClick={ (e) => onBtnClick(e) }>{runtimeSVG} Runtime</div>
-            <div className={`${s.btn} ${s.active}`}  onClick={ (e) => onBtnClick(e)}>{constructorSVG} Constructor</div>
+            <div className={runtimeClassName}  onClick={ (e) => onBtnClick(e) }>{runtimeSVG} Runtime</div>
+            <div className={constructorClassName}  onClick={ (e) => onBtnClick(e)}>{constructorSVG} Constructor</div>
           </div>
         </div>
         <div className={s.content}>
