@@ -27,5 +27,6 @@ export const ADD_ITEM = "ADD_ITEM"
 
 //APP_REDUCER
 export const CHANGE_MODE = 'CHANGE_MODE'
+export const INPUT_MOVED = 'INPUT_MOVED'
 
 

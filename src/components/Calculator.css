@@ -2,6 +2,15 @@
     margin-top: 25px;
 }
 
+.calculatorItem {
+    width: 100%
+
+}
+
+.deactive {
+    pointer-events: none
+  }
+
 .frame {
     width: 243px;
     height: 480px;

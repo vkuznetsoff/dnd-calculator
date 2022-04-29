@@ -4,14 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { Context } from "../App";
 import { addElementAC } from "../redux/actions";
 import { setStatusAC } from "../redux/actions";
+import { changeInputStatus, RUNTIME } from "../redux/app_reducer";
 import { addDropedElement, addDroppedElement } from "../redux/drop_reducer";
 import { DEACTIVE_BLOCK } from "../redux/statuses";
 import { ItemTypes } from "../types/ItemTypes";
 import "./Calculator.css";
 
+const getAppMode = (state) => state.app.appMode;
+const getDropElements = (state) => state.dropElements
+const getDragElements = state => state.dragElements
+
+
 const TargetBoxContainer = () => {
-  const dropElements = useSelector(state => state.dropElements)
-  const dragElements = useSelector(state => state.dragElements)
+  const appMode = useSelector(getAppMode);
+  const dropElements = useSelector(getDropElements)
+  const dragElements = useSelector(getDragElements)
   const dispatch = useDispatch();
   const [empty, setEmpty] = useState(true);
 
@@ -22,9 +29,13 @@ const TargetBoxContainer = () => {
     //   status: "done", 
     //   component: item.component
     // }
-    
+    if (item.item.id === "input") {
+      dispatch(changeInputStatus(true))
+    }
+
     dispatch(setStatusAC(DEACTIVE_BLOCK, item.item.id));
     dispatch(addDroppedElement(item.item))
+
     // dispatch(addElementAC(item))
     setEmpty(false);
   };
@@ -48,6 +59,11 @@ const TargetBoxContainer = () => {
    
   };
 
+  const calculatorItemClassName =
+    appMode === RUNTIME
+      ? "calculatorItem"
+      : "calculatorItem deactive";
+
   return (
     <>
       {
@@ -58,14 +74,14 @@ const TargetBoxContainer = () => {
         >
 
           {dropElements.map( (el) => {
-              return <div key={el.id} className="itemContainer">{el.component}</div>;
+              return <div key={el.id} className="itemContainer">
+               <div className={calculatorItemClassName}>
+                 {el.component}
+               </div>
+                 
+                </div>;
             })}
 
-          {/* {dragElements
-            .filter((f) => f.status == DEACTIVE_BLOCK)
-            .map((el) => {
-              return <div key={el.id} className="itemContainer">{el.component}</div>;
-            })} */}
         </div>
       }
     </>

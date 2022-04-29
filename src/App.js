@@ -45,8 +45,8 @@ function App(props) {
   const runtimeBtnClassName =
     appMode == RUNTIME ? `${s.btn} ${s.active}` : s.btn;
 
-  const constructorClassName = (appMode == RUNTIME) ? s.calculator : s.deactive
-  const runtimeClassName = appMode == CONSTRUCTOR ? s.constructor :  s.deactive
+  const constructorClassName = (appMode == RUNTIME) ? s.constructor : undefined
+  const runtimeClassName = appMode == CONSTRUCTOR ? s.calcualtor :  undefined
 
   // console.log('constructorClassName ', constructorClassName)
   // console.log('runtimeClassName ', runtimeClassName)
