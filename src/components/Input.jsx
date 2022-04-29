@@ -5,8 +5,8 @@ import "./Constructor.css"
 const Input = () => {
     const inputField = useSelector(state => state.input.inputField)
     const blockStatus = useSelector(state => state.dragElements.status)
-    console.log('inputField', inputField)
-    console.log('blockStatus',blockStatus)
+    // console.log('inputField', inputField)
+    // console.log('blockStatus',blockStatus)
     
     return (
       
