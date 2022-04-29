@@ -13,8 +13,24 @@
   /* justify-items: space-between; */
   flex-direction: column;
   /* align-items: flex-end; */
+  /* pointer-events: none; */
+  
   
 }
+
+.calculator {
+
+}
+
+.constructor {
+ 
+}
+
+.deactive {
+  pointer-events: none
+}
+
+
 
 .content {
   display:flex;
