@@ -7,6 +7,10 @@ export default function drop_reducer(state = initialState, action) {
     case ADD_ITEM: {     
       const inState = state.some(i => i.id == action.payload.id) 
       if (!inState) {
+        
+        if (action.payload.id === "input"){
+          return [action.payload, ...state]
+        }
         return [...state, action.payload]
       }
      

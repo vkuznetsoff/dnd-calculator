@@ -8,6 +8,7 @@ import { changeInputStatus, RUNTIME } from "../redux/app_reducer";
 import { addDropedElement, addDroppedElement } from "../redux/drop_reducer";
 import { DEACTIVE_BLOCK } from "../redux/statuses";
 import { ItemTypes } from "../types/ItemTypes";
+import Block from "./Block";
 import "./Calculator.css";
 
 const getAppMode = (state) => state.app.appMode;
@@ -76,7 +77,8 @@ const TargetBoxContainer = () => {
           {dropElements.map( (el) => {
               return <div key={el.id} className="itemContainer">
                <div className={calculatorItemClassName}>
-                 {el.component}
+               <Block  block={el} />
+                 {/* {el.component} */}
                </div>
                  
                 </div>;
