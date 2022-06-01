@@ -52,7 +52,7 @@
 
 .operationContainer {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -71,10 +71,10 @@
 
 
 .numberContainer {
-    width: 240px;
+    /* width: 240px;
     display: grid;
     grid-template-columns: 80px 80px 80px;
-    gap: 8px;
+    gap: 8px; */
 }
 
 .item {

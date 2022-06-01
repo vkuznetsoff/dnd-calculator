@@ -9,8 +9,8 @@ import Operations from "./components/Operations";
 import Equal from "./components/Equal";
 import Numbers from "./components/Numbers";
 import { createContext, useEffect, useReducer, useState } from "react";
-import { initialState } from "./state/state";
-import { reducer } from "./state/reducer";
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { constructorSVG, runtimeSVG } from "./image";
 import { changeAppMode, CONSTRUCTOR, RUNTIME } from "./redux/app_reducer";

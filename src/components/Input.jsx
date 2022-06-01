@@ -7,7 +7,10 @@ const getInputStatus = (state) => state.app.isInputDrop;
 const Input = () => {
     const isInputDrop = useSelector(getInputStatus);
     const inputField = useSelector(state => state.input.inputField)
-    const blockStatus = useSelector(state => state.dragElements.status)
+
+    // const dragElements = useSelector(state => state.dragElements)
+    // const dropBlockStatus = useSelector(state => state.dropElements.status)
+    
     //console.log('appMode', appMode)
     // console.log('blockStatus',blockStatus)
     
@@ -15,7 +18,8 @@ const Input = () => {
       
         <div className="inputFieldContainer">
             <div className="inputField">
-                <p>{(inputField || blockStatus == ACTIVE_BLOCK ) ? inputField : 0}</p>
+                <p>{(inputField) ? inputField : 0}</p>
+                {/* <p>{(inputField && dragBlockStatus == ACTIVE_BLOCK ) ? inputField : 0}</p> */}
             </div>
         </ div>
 
