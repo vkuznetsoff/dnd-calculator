@@ -3,12 +3,14 @@
 }
 
 .calculatorItem {
-    width: 100%
+    width: 100%;
+    cursor: pointer;
 
 }
 
 .deactive {
-    pointer-events: none
+    pointer-events: none;
+    
   }
 
 .frame {

@@ -4,8 +4,12 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import { useDispatch, useSelector } from "react-redux";
-import { constructorSVG, runtimeSVG } from "./image";
+
+import constructor from "./assets/images/constructor.svg";
+import runtime from "./assets/images/runtime.svg";
+
 import { changeAppMode, CONSTRUCTOR, RUNTIME } from "./redux/app_reducer";
+
 import s from "./App.module.css";
 
 export const getAppMode = (state) => state.app.appMode;
@@ -25,13 +29,19 @@ const App = () => {
   //   const btnCursor = (!isInputDropped) ? s.btnDeactive : s.btnActive
   // }, [isInputDropped]);
 
-  const btnCursor = (!isInputDropped) ? s.btnDeactive : s.btnActive
+ 
+  
+  // (!isInputDropped) ? s.btnDeactive : s.btnActive
 
   const constructorBtnClassName =
-    (appMode == CONSTRUCTOR )? `${s.btn} ${s.active} ${btnCursor}` : `${s.btn}`;
+    (appMode == CONSTRUCTOR )? `${s.btn} ${s.active}` : `${s.btn}`;
     
   const runtimeBtnClassName = 
-    (appMode == RUNTIME) ? `${s.btn} ${s.active} ${btnCursor}` : s.btn;
+    (appMode !== RUNTIME && !isInputDropped) ? `${s.btn} ${s.btnDeactive}` 
+    : (appMode == RUNTIME) ? `${s.btn} ${s.active}` : s.btn;
+
+    
+    // (appMode == RUNTIME) ? `${s.btn} ${s.active}` : s.btn;
 
   const constructorClassName = (appMode == RUNTIME) ? s.constructor : undefined
   const runtimeClassName = appMode == CONSTRUCTOR ? s.calcualtor :  undefined
@@ -42,13 +52,13 @@ const App = () => {
         <div className={s.header}>
           <div className={s.btnContainer}>
             <div className={runtimeBtnClassName} onClick={(e) => onBtnClick(e)}>
-              {runtimeSVG} Runtime
+               <img src={runtime} /> Runtime
             </div>
             <div
               className={constructorBtnClassName}
               onClick={(e) => onBtnClick(e)}
             >
-              {constructorSVG} Constructor
+              <img src={constructor} /> Constructor
             </div>
           </div>
         </div>
