@@ -4,12 +4,12 @@ import "./Input.css"
 
 const Input = () => {
     const inputField = useSelector(state => state.input.inputField)
-    const blockStatus = useSelector(state => state.dragElements.status)
-        
+    
     return (
         <div className="inputFieldContainer">
             <div className="inputField">
-                <p>{(inputField || blockStatus == ACTIVE_BLOCK ) ? inputField : 0}</p>
+                <p>{(inputField) ? inputField : 0}</p>
+                {/* <p>{(inputField && dragBlockStatus == ACTIVE_BLOCK ) ? inputField : 0}</p> */}
             </div>
         </ div>
     )

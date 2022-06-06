@@ -24,8 +24,7 @@ export default function app_reducer(state = initialState, action) {
   }
 }
 
-export const changeAppMode = (mode) => {
-    
+export const changeAppMode = (mode) => {  
   return {
     type: CHANGE_MODE,
     payload: mode,

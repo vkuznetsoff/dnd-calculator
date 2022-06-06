@@ -75,9 +75,9 @@ export default function input_reducer(state = initialState, action) {
       return { ...state, operator: action.payload };
     }
 
-    case IS_EQUAL_PRESS: {
-      return { ...state, isEqual: action.payload };
-    }
+    // case IS_EQUAL_PRESS: {
+    //   return { ...state, isEqual: action.payload };
+    // }
 
     case IS_EQUAL_PRESS: {
       return { ...state, isEqual: action.payload };
