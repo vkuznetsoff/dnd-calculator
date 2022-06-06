@@ -1,4 +1,4 @@
-import "./Constructor.css"
+import "./Input.css"
 
 const InitInput = () => {
         

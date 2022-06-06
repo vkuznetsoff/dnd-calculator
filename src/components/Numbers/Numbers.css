@@ -1,0 +1,27 @@
+.numbersContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.numberItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 24px 30px 25px; */
+    width: 72px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+
+.numberItem p {
+    margin: 0;
+}
+
+

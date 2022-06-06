@@ -1,5 +1,5 @@
-import Constructor from "./components/Constructor";
-import Calculator from "./components/Calculator";
+import Constructor from "./components/Constructor/Constructor";
+import Calculator from "./components/Calculator/Calculator";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -25,12 +25,7 @@ const App = () => {
     } else dispatch(changeAppMode(CONSTRUCTOR));
   };
 
-  // useEffect(() => { 
-  //   const btnCursor = (!isInputDropped) ? s.btnDeactive : s.btnActive
-  // }, [isInputDropped]);
-
  
-  
   // (!isInputDropped) ? s.btnDeactive : s.btnActive
 
   const constructorBtnClassName =

@@ -1,4 +1,4 @@
-import Input from "../components/Input";
+import Input from "../components/Input/Input";
 import { ADD_ELEMENT, ADD_ITEM } from "./actionTypes";
 import { ACTIVE_BLOCK } from "./statuses";
 

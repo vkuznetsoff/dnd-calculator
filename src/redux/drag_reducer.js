@@ -1,10 +1,9 @@
-import Equal from "../components/Equal";
-import InitInput from "../components/InitInput";
-import Input from "../components/Input";
-import Numbers from "../components/Numbers";
-import Operations from "../components/Operations";
+import Equal from "../components/Equal/Equal";
+import InitInput from "../components/Input/InitInput";
+import Numbers from "../components/Numbers/Numbers";
+import Operations from "../components/Operations/Operations";
 import { CHANGE_STATUS } from "./actionTypes";
-import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "./statuses";
+import { ACTIVE_BLOCK } from "./statuses";
 
 
 const initialState = [

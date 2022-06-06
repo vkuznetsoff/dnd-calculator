@@ -1,0 +1,14 @@
+.equalContainer {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #5d5fef;
+  border-radius: 6px;
+}
+
+.itemEqual {
+  color: #ffffff;
+  width: 100%;
+}

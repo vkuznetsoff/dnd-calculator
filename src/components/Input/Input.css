@@ -1,0 +1,26 @@
+.inputFieldContainer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputField {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 4px;
+  width: 232px;
+  height: 50px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.inputField p {
+  padding: 4px 18px 4px;
+}

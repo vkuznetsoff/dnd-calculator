@@ -1,4 +1,4 @@
-import Constructor from "../components/Constructor";
+import Constructor from "../components/Constructor/Constructor";
 import { ADD_ELEMENT, ADD_ITEM, CHANGE_MODE, INPUT_MOVED } from "./actionTypes";
 
 export const CONSTRUCTOR = 'CONSTRUCTOR'

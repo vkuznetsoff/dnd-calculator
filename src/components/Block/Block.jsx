@@ -1,9 +1,10 @@
 import { useDrag, useDrop } from "react-dnd";
-import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "../redux/statuses";
-import { ItemTypes } from "../types/ItemTypes";
-import s from "../App.module.css";
+import { DEACTIVE_BLOCK } from "../../redux/statuses";
+import { ItemTypes } from "../../types/ItemTypes";
 import { useSelector } from "react-redux";
-import { CONSTRUCTOR } from "../redux/app_reducer";
+import { CONSTRUCTOR } from "../../redux/app_reducer";
+
+import "./Block.css"
 
 const getAppMode = (state) => state.app.appMode;
 
@@ -21,12 +22,6 @@ const Block = ({ block }) => {
     }),
 
     end: (item, monitor) => {
-      //Получаем сведения о результатах перетаскивания
-    //   const res1 = monitor.getDropResult()
-    //   const res2 = monitor.didDrop()
-    //   console.log(res1)
-    //   console.log(res2)
-    //   console.log(item)
     },
   });
 
@@ -61,7 +56,7 @@ const Block = ({ block }) => {
   return (
     <>
       <div ref={(node) => drag(drop(node))} style={style}>
-        <div className={blockClass}>{block.component}</div>
+        <div className="block">{block.component}</div>
       </div>
     </>
   );

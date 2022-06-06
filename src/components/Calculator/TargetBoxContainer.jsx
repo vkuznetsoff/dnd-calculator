@@ -1,14 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useDrop } from "react-dnd";
 import { useDispatch, useSelector } from "react-redux";
-import { Context } from "../App";
-import { addElementAC } from "../redux/actions";
-import { setStatusAC } from "../redux/actions";
-import { changeInputStatus, RUNTIME } from "../redux/app_reducer";
-import { addDropedElement, addDroppedElement } from "../redux/drop_reducer";
-import { DEACTIVE_BLOCK } from "../redux/statuses";
-import { ItemTypes } from "../types/ItemTypes";
-import Block from "./Block";
+import { setStatusAC } from "../../redux/actions";
+import { changeInputStatus, RUNTIME } from "../../redux/app_reducer";
+import { addDroppedElement } from "../../redux/drop_reducer";
+import { DEACTIVE_BLOCK } from "../../redux/statuses";
+import { ItemTypes } from "../../types/ItemTypes";
+import Block from "../Block/Block";
 import "./Calculator.css";
 
 const getAppMode = (state) => state.app.appMode;

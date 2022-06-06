@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Block from "./Block";
+import Block from "../Block/Block";
 import "./Constructor.css";
 
 const Constructor = () => {
