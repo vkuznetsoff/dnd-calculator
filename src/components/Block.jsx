@@ -1,5 +1,5 @@
 import { useDrag, useDrop } from "react-dnd";
-import { DEACTIVE_BLOCK } from "../redux/statuses";
+import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "../redux/statuses";
 import { ItemTypes } from "../types/ItemTypes";
 import s from "../App.module.css";
 import { useSelector } from "react-redux";
@@ -33,7 +33,12 @@ const Block = ({ block }) => {
   const [ {isOver} ,drop] = useDrop( () => ({
       accept: ItemTypes.BLOCK,
      
-      hover(item) { console.log()
+      hover(item) { 
+        
+      },
+
+      drop (item, monitor) {
+  
       },
 
       collect: (monitor) => ({
@@ -51,7 +56,7 @@ const Block = ({ block }) => {
     
   };
 
-  const blockClass = appMode === CONSTRUCTOR ? s.deactive : undefined;
+  const blockClass = appMode === CONSTRUCTOR ? "" : undefined;
 
   return (
     <>

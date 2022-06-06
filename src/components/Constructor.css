@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: grab;
     
 
 }
@@ -52,7 +53,6 @@
 
 .operationContainer {
     display: flex;
-    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

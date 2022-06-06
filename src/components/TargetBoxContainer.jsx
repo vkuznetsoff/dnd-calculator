@@ -30,7 +30,7 @@ const TargetBoxContainer = () => {
     //   status: "done", 
     //   component: item.component
     // }
-    if (item.item.id === "input") {
+    if (item.item.id === "init_input") {
       dispatch(changeInputStatus(true))
     }
 
@@ -56,7 +56,7 @@ const TargetBoxContainer = () => {
 
   const style = {
     border: empty ? "2px dashed #C4C4C4" : "none",
-    backgroundColor: isOver ? "yellow" : undefined,
+    backgroundColor: isOver ? "#edf2f4" : undefined,
    
   };
 

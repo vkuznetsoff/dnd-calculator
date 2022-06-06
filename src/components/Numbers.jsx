@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
+import { getAppMode } from "../App";
 import { setInput1, setInput1Flag, setInput2, setInputField } from "../redux/actions";
+import { CONSTRUCTOR } from "../redux/app_reducer";
 import { SetActiveBorder } from "../utils/utils";
 
 const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ","];
 const Numbers = () => {
-
+  const appMode = useSelector(getAppMode);
 
   const dispatch = useDispatch()
-
-
   const input1 = useSelector(state => state.input.input1)
   const input2 = useSelector(state => state.input.input2)
   const isEqualPress = useSelector(state => state.input.isEqualPress)
@@ -53,7 +53,7 @@ const Numbers = () => {
           <div
             key={list.indexOf(i)}
             className="numberItem"
-            onClick={(e) => onNumberClick(e, i)}
+            onClick={(e) => appMode !== CONSTRUCTOR ? onNumberClick(e, i): undefined}
           >
             {i}
           </div>

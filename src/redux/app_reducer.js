@@ -33,7 +33,7 @@ export const changeAppMode = (mode) => {
 };
 
 export const changeInputStatus = (flag) => {
-    
+
   return {
     type: INPUT_MOVED,
     payload: flag,

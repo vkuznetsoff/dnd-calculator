@@ -1,4 +1,5 @@
 import Equal from "../components/Equal";
+import InitInput from "../components/InitInput";
 import Input from "../components/Input";
 import Numbers from "../components/Numbers";
 import Operations from "../components/Operations";
@@ -6,13 +7,11 @@ import { CHANGE_STATUS } from "./actionTypes";
 import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "./statuses";
 
 
-
-
 const initialState = [
   {
-    id: "input",
+    id: "init_input",
     order: 1,
-    component: <Input />,
+    component: <InitInput />,
     status: ACTIVE_BLOCK,
   },
 
@@ -35,6 +34,7 @@ const initialState = [
     component: <Equal />,
     status: ACTIVE_BLOCK, //  or "DEACTIVE_BLOCK"
   },
+  
 ];
 
 export default function drag_reducer(state = initialState, action) {
