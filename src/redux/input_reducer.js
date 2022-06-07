@@ -1,3 +1,4 @@
+import { formatNum } from "../utils/utils";
 import {
   CALC_RESULT,
   CHANGE_INPUT_1,
@@ -32,6 +33,7 @@ function calc(a, b, operator) {
   }
 }
 
+
 const initialState = {
   inputField: "",
   input1: "",
@@ -60,7 +62,7 @@ export default function input_reducer(state = initialState, action) {
     case CHANGE_INPUT_FIELD: {
       return {
         ...state,
-        inputField: action.payload,
+        inputField: formatNum(action.payload),
       };
     }
 
@@ -84,8 +86,8 @@ export default function input_reducer(state = initialState, action) {
       }
       return {
         ...state,
-        input1: result,
-        inputField: String(result).length >=8 ? result.toPrecision(8): result,
+        input1: formatNum(result),
+        inputField: formatNum(result),
         isEqualPress: true,
       }
 

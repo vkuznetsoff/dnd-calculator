@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAppMode } from "../../App";
 import { setInput1, setInput2, setInputField } from "../../redux/actions";
 import { CONSTRUCTOR } from "../../redux/app_reducer";
-import "./Numbers.css"
 import { SetActiveBorderStyle } from '../../utils/utils';
-import { useState } from 'react';
 import { equalPress } from './../../redux/actions';
+
+import "./Numbers.css"
 
 const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 
