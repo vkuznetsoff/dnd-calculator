@@ -10,7 +10,9 @@ This App has two modes:
 ## Sreencast
 <img src="https://s1.hostingkartinok.com/uploads/images/2022/06/07640edd00aa84132215a5307132deb1.gif" width="500">
 
-<a href="dnd-calculator-beta.vercel.app" target="_blank">LIVE DEMO</a>
+<a href="https://dnd-calculator-beta.vercel.app/" target="_blank">LIVE DEMO</a>
+
+<a href="https://trello-dashboard.vercel.app/" target="_blank">LIVE DEMO</a>
 
 ## Languagies and Tools
 
