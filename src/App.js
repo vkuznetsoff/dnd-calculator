@@ -1,6 +1,6 @@
 import Constructor from "./components/Constructor/Constructor";
 import Calculator from "./components/Calculator/Calculator";
-import Header from "./Header/Header";
+import Header from "./components/Header/Header";
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";

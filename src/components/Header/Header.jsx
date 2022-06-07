@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { CONSTRUCTOR, RUNTIME, changeAppMode } from './../redux/app_reducer';
+import { CONSTRUCTOR, RUNTIME, changeAppMode } from '../../redux/app_reducer';
 
-import constructor from "../assets/images/constructor.svg";
-import runtime from "../assets/images/runtime.svg";
+import constructor from "../../assets/images/constructor.svg";
+import runtime from "../../assets/images/runtime.svg";
 
 import s from "./Header.module.css"
 
