@@ -36,8 +36,7 @@ const Block = ({ block }) => {
     opacity: isDragging || block.status === DEACTIVE_BLOCK ? "0.5" : "1",
     pointerEvents: block.status === DEACTIVE_BLOCK && "none",
     width: "100%",
-    boxShadow: isOver ? '0 -10px 5px -5px #5D5FEF': "none"
-    
+    // boxShadow: isOver ? '0 -10px 5px -5px #5D5FEF': "none"
   };
 
   // const blockClass = appMode === CONSTRUCTOR ? "" : undefined;
