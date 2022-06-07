@@ -12,7 +12,6 @@ This App has two modes:
 
 <a href="https://dnd-calculator-beta.vercel.app/" target="_blank">LIVE DEMO</a>
 
-<a href="https://trello-dashboard.vercel.app/" target="_blank">LIVE DEMO</a>
 
 ## Languagies and Tools
 
