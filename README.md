@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+<h3 align="center"> Drag and Drop<br />calculator constructor </h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Functions:
+This App has two modes:
 
-## Available Scripts
+<strong>constructor</strong> - you can create interfaces by dropping to canvas but click events blocked.
 
-In the project directory, you can run:
+<strong>runtime</strong> - drag-n-drop blocked and you can use calculator functions: push buttons and see result on screen.
 
-### `npm start`
+## Sreencast
+<img src="https://s1.hostingkartinok.com/uploads/images/2022/06/07640edd00aa84132215a5307132deb1.gif" width="500">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a href="dnd-calculator-beta.vercel.app" target="_blank">LIVE DEMO</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Languagies and Tools
 
-### `npm test`
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/f2c31b8897a74da7737591378591f7b7.png" />
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/b907542e162a3f993d9f25b8da2dfcfa.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/35bb74122e5408633c262058e7dad2f1.png" />
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/3c63dc7e57f797875c3060cc7bf3d547.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/a991395c49790492a96f2d0ac873a3e7.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/beeef1cea0192c4efd17bb1d626b78b2.png" />
+<img width="100px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/cda69a13613c9bde50f49cf0b6562d81.png" />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
+<br />
 
-### `npm run build`
+### Future features:
++ delete block from canvas with dblclick
++ modify css
++ do drag and drop inside canvas
++ improve calc logic
++ fix calc long numbers
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone https://github.com/vkuznetsoff/dnd-calculator.git -b master
 
-### `npm run eject`
+npm i
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
