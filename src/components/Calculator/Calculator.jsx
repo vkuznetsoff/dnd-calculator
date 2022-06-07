@@ -1,8 +1,6 @@
 import "./Calculator.css";
 import TargetBoxContainer from "./TargetBoxContainer"
 
-
-
 const Calculator = () => {
 
   return (

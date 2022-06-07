@@ -1,8 +1,8 @@
 import Input from "../components/Input/Input";
-import { ADD_ELEMENT, ADD_ITEM } from "./actionTypes";
+import { ADD_ITEM } from "./actionTypes";
 import { ACTIVE_BLOCK } from "./statuses";
 
-const InputBlock =  {
+const InputBlock = {
   id: "input",
   order: 1,
   component: <Input />,
@@ -13,16 +13,16 @@ const initialState = [];
 
 export default function drop_reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_ITEM: {     
-      const inState = state.some(i => i.id == action.payload.id) 
+    case ADD_ITEM: {
+      const inState = state.some(i => i.id == action.payload.id)
       if (!inState) {
-        
-        if (action.payload.id === "init_input"){
+
+        if (action.payload.id === "init_input") {
           return [InputBlock, ...state]
         }
         return [...state, action.payload]
       }
-     
+
     }
 
     default:
@@ -31,7 +31,7 @@ export default function drop_reducer(state = initialState, action) {
 }
 
 export const addDroppedElement = (item) => {
-    
+
   return {
     type: ADD_ITEM,
     payload: item,

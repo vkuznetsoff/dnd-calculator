@@ -1,5 +1,6 @@
 .calculatorContainer {
     margin-top: 25px;
+    position: relative;
 }
 
 .calculatorItem {
@@ -10,14 +11,24 @@
 
 .deactive {
     pointer-events: none;
-    
-  }
+
+}
 
 .frame {
     width: 243px;
     height: 480px;
-
-    
     box-sizing: border-box;
     border-radius: 6px;
+}
+
+.dropText {
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }

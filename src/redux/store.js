@@ -1,4 +1,3 @@
-import { configureStore} from "@reduxjs/toolkit"
 import { applyMiddleware, combineReducers, createStore } from "redux"
 import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -22,15 +21,6 @@ const rootReducer = combineReducers(
 const store = createStore(rootReducer, 
     composeWithDevTools(applyMiddleware(thunkMiddleware)))
     
-// const store =  configureStore({
-//     reducer: rootReducer,
-//     middleware: [applyMiddleware(thunkMiddleware)]
-   
-//     // middleware: getDefaultMiddleware =>
-//     // getDefaultMiddleware ({
-//     //   serializableCheck: false,
-//     // })
-// })
 
 window.store = store
 

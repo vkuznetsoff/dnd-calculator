@@ -1,5 +1,5 @@
-import Constructor from "../components/Constructor/Constructor";
-import { ADD_ELEMENT, ADD_ITEM, CHANGE_MODE, INPUT_MOVED } from "./actionTypes";
+
+import { CHANGE_MODE, INPUT_MOVED } from "./actionTypes";
 
 export const CONSTRUCTOR = 'CONSTRUCTOR'
 export const RUNTIME = 'RUNTIME'
@@ -11,20 +11,20 @@ const initialState = {
 
 export default function app_reducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_MODE: {     
-        return {...state, appMode: action.payload}
+    case CHANGE_MODE: {
+      return { ...state, appMode: action.payload }
     }
 
-    case INPUT_MOVED: {     
-      return {...state, isInputDrop: true}
-  }
+    case INPUT_MOVED: {
+      return { ...state, isInputDrop: true }
+    }
 
     default:
       return state;
   }
 }
 
-export const changeAppMode = (mode) => {  
+export const changeAppMode = (mode) => {
   return {
     type: CHANGE_MODE,
     payload: mode,

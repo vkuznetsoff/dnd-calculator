@@ -11,7 +11,7 @@ const getAppMode = (state) => state.app.appMode;
 const Block = ({ block }) => {
   const appMode = useSelector(getAppMode);
 
-  const [{ isDragging, isDropped }, drag] = useDrag({
+  const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.BLOCK,
     item: {
       item: block,
@@ -21,26 +21,15 @@ const Block = ({ block }) => {
       isDragging: !!monitor.isDragging(),
     }),
 
-    end: (item, monitor) => {
-    },
   });
 
   const [ {isOver} ,drop] = useDrop( () => ({
       accept: ItemTypes.BLOCK,
-     
-      hover(item) { 
-        
-      },
-
-      drop (item, monitor) {
-  
-      },
 
       collect: (monitor) => ({
         //Собирает информацию, о наведении перетаскиваемого элемента над объектом
         isOver: monitor.isOver()
       })
-
   }))
 
   const style = {
@@ -51,7 +40,7 @@ const Block = ({ block }) => {
     
   };
 
-  const blockClass = appMode === CONSTRUCTOR ? "" : undefined;
+  // const blockClass = appMode === CONSTRUCTOR ? "" : undefined;
 
   return (
     <>

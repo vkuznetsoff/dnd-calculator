@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: end;
+    margin-top: 38px;
+    margin-right: 80px;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1px;
+    width: 243px;
+    height: 38px;
+    background: #f3f4f6;
+    border-radius: 6px;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    width: 133px;
+    height: 36px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.active {
+    background: #ffffff;
+    border: 1px solid #e2e3e5;
+}
+
+.btnDeactive {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.btnActive {
+    background: black;
+    cursor: pointer;
+}

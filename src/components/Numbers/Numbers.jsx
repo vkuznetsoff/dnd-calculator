@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAppMode } from "../../App";
 import { setInput1, setInput2, setInputField } from "../../redux/actions";
 import { CONSTRUCTOR } from "../../redux/app_reducer";
-import { SetActiveBorder } from "../../utils/utils";
 import "./Numbers.css"
+import { SetActiveBorderStyle } from '../../utils/utils';
+import { useState } from 'react';
 
-const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ","];
+const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 
 const Numbers = () => {
   const appMode = useSelector(getAppMode);
@@ -16,7 +17,11 @@ const Numbers = () => {
   const operator = useSelector((state) => state.input.operator);
 
   const onNumberClick = (e, i) => {
-    SetActiveBorder(e, "numberItem");
+    e.target.style = SetActiveBorderStyle(e.target, "numberItem");
+    setTimeout(() => {
+      e.target.style = "border: 1px solid #E2E3E5";
+    }, 300);
+
 
     if (input2 === "" && operator === "") {
       dispatch(setInput1(input1 + i));
@@ -29,10 +34,6 @@ const Numbers = () => {
       dispatch(setInput2(input2 + i));
       dispatch(setInputField(input2 + i));
     }
-
-    setTimeout(() => {
-      e.target.style = "border: 1px solid #E2E3E5";
-    }, 300);
   };
 
   return (
@@ -50,6 +51,7 @@ const Numbers = () => {
           </div>
         );
       })}
+
     </div>
   );
 };

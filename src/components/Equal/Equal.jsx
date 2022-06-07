@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { calcResult } from "../../redux/actions";
 
 import "./Equal.css";

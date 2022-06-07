@@ -1,20 +1,13 @@
 import {
-  CALC_EXPR,
   CALC_RESULT,
   CHANGE_INPUT_1,
   CHANGE_INPUT_2,
   CHANGE_INPUT_FIELD,
   CLEAR_ALL,
   IS_EQUAL_PRESS,
-  IS_INPUT_1,
-  IS_INPUT_2,
-  IS_OPERATOR_PRESS,
-  RESET_INPUT_1,
-  RESET_INPUT_2,
-  RESET_INPUT_FIELD,
   SET_OPERATOR,
 } from "./actionTypes";
-import { ACTIVE_BLOCK, DEACTIVE_BLOCK } from "./statuses";
+
 
 function calc(a, b, operator) {
   switch (operator) {
@@ -75,31 +68,27 @@ export default function input_reducer(state = initialState, action) {
       return { ...state, operator: action.payload };
     }
 
-    // case IS_EQUAL_PRESS: {
-    //   return { ...state, isEqual: action.payload };
-    // }
-
     case IS_EQUAL_PRESS: {
       return { ...state, isEqual: action.payload };
     }
 
     case CALC_RESULT: {
       let result = calc(state.input1, state.input2, state.operator);
-      if (result === "Error") { 
+      if (result === "Error") {
         return {
           ...state,
           input1: "",
           inputField: result,
           isEqualPress: true,
-        } 
+        }
       }
-        return {
-          ...state,
-          input1: result,
-          inputField: result,
-          isEqualPress: true,
-        } 
-      
+      return {
+        ...state,
+        input1: result,
+        inputField: String(result).length >=8 ? result.toPrecision(8): result,
+        isEqualPress: true,
+      }
+
     }
 
     case CLEAR_ALL: {
@@ -118,45 +107,3 @@ export default function input_reducer(state = initialState, action) {
   }
 }
 
-// export const setInput1 = (i) => (dispatch) => {
-//   dispatch()
-
-// };
-// export const setInput1 = (i) => {
-//   return {
-//     type: CHANGE_INPUT_1,
-//     payload: i
-//   }
-// }
-
-// export const setInput2 = (i) => {
-//   return {
-//     type: CHANGE_INPUT_1,
-//     payload: i
-//   }
-// }
-// // export const setInput2 = (flag, i) => (dispatch) => {
-
-// // };
-
-// // export const OperatorPress = (flag, i) => (dispatch) => {
-
-// // };
-
-// export const setOperator = (i) => {
-//   return {
-//     type: SET_OPERATOR,
-//     payload: i
-//   }
-// }
-
-// // export const EqualPress = (flag, result) => (dispatch) => {
-
-// // };
-
-// export const isEqualPress = (flag) => {
-//   return {
-//     type: IS_EQUAL_PRESS,
-//     payload: flag
-//   }
-// }
