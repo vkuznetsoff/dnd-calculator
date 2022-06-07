@@ -69,7 +69,7 @@ export default function input_reducer(state = initialState, action) {
     }
 
     case IS_EQUAL_PRESS: {
-      return { ...state, isEqual: action.payload };
+      return { ...state, isEqualPress: action.payload };
     }
 
     case CALC_RESULT: {
@@ -98,7 +98,7 @@ export default function input_reducer(state = initialState, action) {
         input1: "",
         input2: "",
         operator: "",
-        isEqual: false,
+        isEqualPress: false,
       };
     }
 

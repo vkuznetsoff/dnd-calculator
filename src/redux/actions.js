@@ -32,7 +32,7 @@ export const setOperator = (i) => {
 }
 
 
-export const isEqualPress = (flag) => {
+export const equalPress = (flag) => {
   return {
     type: IS_EQUAL_PRESS,
     payload: flag

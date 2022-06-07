@@ -5,6 +5,7 @@ import { CONSTRUCTOR } from "../../redux/app_reducer";
 import "./Numbers.css"
 import { SetActiveBorderStyle } from '../../utils/utils';
 import { useState } from 'react';
+import { equalPress } from './../../redux/actions';
 
 const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 
@@ -28,9 +29,13 @@ const Numbers = () => {
       dispatch(setInputField(input1 + i));
     } else if (input1 != "" && input2 != "" && isEqualPress) {
       dispatch(setInput2(i));
-      dispatch(isEqualPress(false));
+      dispatch(equalPress(false));
       dispatch(setInputField(i));
-    } else {
+    } else if (input1 != "" && isEqualPress){
+      dispatch(setInput2(input2 + i));
+      dispatch(setInputField(input2 + i));
+    }
+    else {
       dispatch(setInput2(input2 + i));
       dispatch(setInputField(input2 + i));
     }
